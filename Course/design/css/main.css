@@ -1,0 +1,100 @@
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('fonts/SF Pro Display.otf');
+}
+@font-face {
+    font-family: 'Inter';
+    src: url('fonts/Inter.otf');
+}
+body {
+    background: #f0f0f0;
+    overflow-x: hidden;
+}
+.div_body1 {
+    background: linear-gradient(90deg, #7bdbe1 0%, #61acb1 50.24%, #43787b 100%);
+}
+.div_body1_1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'SF Pro Display';
+    font-size: 45px;
+    padding: 5% 0% 5% 5%;
+    color: #fff;
+}
+.div_body1_1 img {
+    width: 50vw;
+}
+.div_body1_1 span {
+    color: #488084;
+}
+.div_body1_2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70vw;
+    margin: 0 auto;
+    font-family: 'SF Pro Display';
+    font-size: 32px;
+    color: #fff;
+}
+.div_body1_2 span {
+    color: #488084;
+}
+.div_body2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50vw;
+    margin: 0 auto;
+    font-family: "SF Pro Display";
+}
+.div_body2 p {
+    font-size: 64px;
+    font-family: "SF Pro Display";
+    text-align: center;
+}
+.footer1 {
+    width: 100vw;
+    margin-top: 5%;
+    background: #488084;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 2.5%;
+}
+.footer_div1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.footer_div1 a {
+    font-family: "SF Pro Display";
+    font-size: 24px;
+    color: #fff;
+}
+.footer_div2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.footer_div2 p {
+    font-family: "SF Pro Display";
+    font-size: 18px;
+    color: #fff;
+}
+.footer_div3_text2 {
+    font-family: "SF Pro Display";
+    font-size: 18px;
+    color: #fff;
+}
+.footer_div3_icon {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+.footer_div3_text {
+    font-family: "SF Pro Display";
+    font-size: 24px;
+    color: #fff;
+}

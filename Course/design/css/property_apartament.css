@@ -1,0 +1,113 @@
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('fonts/SF Pro Display.otf');
+}
+@font-face {
+    font-family: 'Inter';
+    src: url('fonts/Inter.otf');
+}
+.div1 {
+    background-color: #f0f0f0;
+    overflow-x: hidden;
+}
+.text1 {
+    font-family: "SF Pro Display";
+    font-size: 64px;
+    text-align: center;
+    color: #488084;
+    margin-top: 5%;
+}
+.text2 {
+    font-family: "SF Pro Display";
+    font-size: 40px;
+    text-align: center;
+}
+.card_div {
+    margin: 5% auto;
+    width: 80vw;
+    font-family: "SF Pro Display";
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.div_programm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid #488084;
+    width: 25vw;
+    height: 60vh;
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.25);
+    font-family: "SF Pro Display";
+    font-size: 30px;
+}
+.div_programm_div1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.div_programm_div1 p {
+    margin: 0;
+}
+.div_programm_p1 {
+    font-size: 36px;
+    color: #488084;
+}
+.div_programm button {
+    background-color: #488084;
+    color: #fff;
+    padding: 5% 10%;
+    border-radius: 1rem;
+}
+.div_descr1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.div_descr2 {
+    width: 20vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.div_descr2 :first-child {
+    width: 10vw;
+}
+.div_descr1 p {
+    margin: 2% 0;
+    font-family: "SF Pro Display";
+    font-size: 20px;
+}
+.risks img {
+    width: 40vw;
+    height: 50vh;
+}
+.risks_img {
+    width: 30vw;
+}
+.risks_p {
+    font-family: "SF Pro Display";
+    font-size:  46px;
+    margin-left: 10%;
+    margin-bottom: 2%;
+}
+.risks_descr {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+}
+.risks_descr_div {
+    width: 40vw;
+}
+.risks_descr p {
+    font-family: "SF Pro Display";
+    font-size:  36px;
+}
+.risks_descr li {
+    font-family: "SF Pro Display";
+    font-size:  24px;
+}

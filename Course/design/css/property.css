@@ -1,0 +1,134 @@
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('fonts/SF Pro Display.otf');
+}
+@font-face {
+    font-family: 'Inter';
+    src: url('fonts/Inter.otf');
+}
+.div1 {
+    background-color: #f0f0f0;
+    overflow-x: hidden;
+}
+.text1 {
+    font-family: "SF Pro Display";
+    font-size: 64px;
+    text-align: center;
+    color: #488084;
+}
+.text2 {
+    font-family: "SF Pro Display";
+    font-size: 40px;
+    text-align: center;
+}
+.div_descr1 {
+    margin: 5% auto;
+    width: 75vw;
+    border-radius: 2rem;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.div_descr2 {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20vw;
+    padding: 2%;
+}
+.div_descr2 p {
+    color: #000;
+}
+.div_descr3 {
+    background-color: #488084;
+    font-size: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    width: 100vw;
+}
+.div_descr3 p {
+    width: 60vw;
+    padding: 2.5% 5%;
+}
+.catalog {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5em;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.catalog_div1 {
+    background-color: #fff;
+    padding: 2.5% 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 2.5rem;
+}
+.catalog_div1 p {
+    font-family: "SF Pro Display";
+    font-size: 36px;
+}
+.catalog_div1 button {
+    font-family: "SF Pro Display";
+    font-size: 32px;
+    color: #fff;
+    background-color: #488084;
+    padding: 2.5% 20%;
+    border-radius: 1rem;
+}
+.footer1 {
+    width: 100vw;
+    margin-top: 5%;
+    background: #488084;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 2.5%;
+}
+.footer_div1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.footer_div1 a {
+    font-family: "SF Pro Display";
+    font-size: 24px;
+    color: #fff;
+}
+.footer_div2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.footer_div2 p {
+    font-family: "SF Pro Display";
+    font-size: 18px;
+    color: #fff;
+}
+.footer_div3_text2 {
+    font-family: "SF Pro Display";
+    font-size: 18px;
+    color: #fff;
+}
+.footer_div3_icon {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+.footer_div3_text {
+    font-family: "SF Pro Display";
+    font-size: 24px;
+    color: #fff;
+}   
