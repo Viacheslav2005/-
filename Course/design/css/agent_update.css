@@ -34,7 +34,7 @@ body {
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin: 5% auto 0 auto;
+    margin: 1% auto 0 auto;
     width: 80vw;
 }
 .div_programm {
@@ -49,11 +49,17 @@ body {
     font-family: "SF Pro Display";
     font-size: 30px;
     border-radius: 2rem;
+    margin-top: 2%;
 }
 .div_programm_div1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.div_programm_div2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 .div_programm_div1 p {
     margin: 0;
@@ -78,10 +84,11 @@ body {
     width: 20vw;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    text-align: center;
+    justify-content: center;
 }
 .div_descr2 :first-child {
-    width: 10vw;
+    width: 15vw;
 }
 .div_descr1 p {
     margin: 2% 0;

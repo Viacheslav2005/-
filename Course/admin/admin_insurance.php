@@ -18,7 +18,7 @@ $result = $category -> categories();
       <div class="card">
         <div class="card1">
             <p><?=$item[1]?></p>
-            <button class="but1"  type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Изменить</button>
+            <button class="but1"><a href="admin_insurance_up.php?id=<?=$item[0]?>">Изменить</a></button>
         </div>
         <div>
             <img src="../design/img/<?=$item[2]?>" alt="">
@@ -30,14 +30,14 @@ $result = $category -> categories();
 <button class="but_add"  type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Создать</button>
 
 <!-- Обновление  -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="staticBackdropLabel">Обновление страхования</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form action="admin_insurance_up.php" method="POST">
+      <form action="admin_insurance_up.php" method="POST" enctype="multipart/form-data">
         <div class="modal-body">
           <div>
               <p>Название</p>
@@ -55,7 +55,7 @@ $result = $category -> categories();
       </form>
     </div>
   </div>
-</div>
+</div> -->
 <!-- Создание  -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -64,7 +64,7 @@ $result = $category -> categories();
         <h1 class="modal-title fs-5" id="exampleModalLabel">Создание страхования</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-        <form action="admin_insurance_add.php" method="POST">
+        <form action="admin_insurance_add.php" method="POST" enctype="multipart/form-data">
           <div class="modal-body">
               <div>
                   <p>Название</p>

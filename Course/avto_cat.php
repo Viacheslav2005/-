@@ -1,5 +1,11 @@
 <?php
-    include "../Course/includes/nav_user.php"; 
+include "../Course/includes/nav_user.php"; 
+
+require_once "database/Query.php";
+
+$cover = new Query();
+
+$coverage = $cover -> coverage($_GET["id"]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="category">
+    <!-- <div class="category">
         <div class="category_up">
             <div class="category_up_text">
                 <div class="category_up_text_div">
@@ -38,7 +44,19 @@
                 <img src="/design/img/Corvette-Car-PNG-Transparent 1.png" alt="">
             </div>
         </div>
-    </div>
+    </div> -->
+    <!-- <div class="catalog">
+        <?php foreach($coverage as $item) {?>
+            <div class="catalog_div1">
+                <p><?=$item[1]?></p>
+                <button onclick="document.location='/property_apartment.php'">Подробнее</button>
+            </div>
+        <div class="catalog_div1">
+            <p>Ответственность перед соседями</p>
+            <button onclick="document.location='/property_fire.php'">Подробнее</button>
+        </div>
+        <?php } ?>
+    </div> -->
     <div class="question">
         <p class="question_text">Зачем необходимо страховать автомобиль?</p>
         <div class="question_div">
@@ -48,6 +66,31 @@
                 <span>Независимо от вашего опыта вождения и уверенности  в своих навыках, нельзя быть полностью защищенным от возможных аварийных ситуаций.  Потому что ДТП могут быть вызваны другими водителями и пешеходами, плохими погодными условиями, плохим состоянием дороги и  другими факторами, на которые вы не  имеете контроля.</span>
             </div>
         </div>
+    </div>
+    <div class="card_div">
+        <?php foreach($coverage as $item) {?>
+            <form action="/user/add_order.php" method="POST">
+                <div class="div_programms">
+                    <div class="div_programms_div1">
+                        <input type="hidden" name="id" value = "<?=$item[0]?>">
+                        <p><input readonly type="text" name="name" id="" value="<?=$item[1]?>"></p>
+                            <div class="valid_period">
+                                <span><input type="text" readonly name="price" id="" value="<?=$item[2]?>">₽</span>/ <input readonly type="text" name="" id="" value = "<?=$item[6]?>"> месяцев
+                            </div>
+                        <p>Страховая сумма</p>
+                        <span><?=$item[3]?>₽</span>
+                    </div>
+                    <div class="div_descrs3">
+                            <!-- <p><input readonly type="text" name="descr" id="" value = "<?=$item[5]?>"></p> -->
+                            <textarea name="descr" id="" value = "<?=$item[5]?>" rows="5" cols="28"><?=$item[5]?></textarea>
+                        </div>
+                    <?php if(isset($_SESSION['auth'])) {?>
+                        <button type = "submit">Купить</button>
+                    <?php } else { ?>
+                    <?php } ?>
+                </div>
+            </form>
+        <?php } ?>
     </div>
     <div class="difference">
         <p class="difference_text1">В чем отличие ОСАГО и КАСКО?</p>

@@ -3,7 +3,7 @@ require_once "../database/Admin.php";
 session_start();
 $add = new Admin();
 
-if($add -> add_category($_POST["name"], $_FILES["img"])) {
+if($add -> update_category($_POST["id"], $_POST["name"], $_FILES["img"])) {
     header("Location: /admin/admin_insurance.php"); 
     exit(); 
 } else {

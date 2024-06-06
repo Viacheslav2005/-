@@ -8,7 +8,11 @@ $result = $user -> users();
 
 $cat = $user -> categories();
 
-$ins = $user -> insurance();
+// $ins = $user -> insurance();
+
+$ins = $user -> sort($_GET["cat_id"]);
+
+$sort = $user -> sort($_GET["cat_id"]);
 ?>
 
 <head>
@@ -20,13 +24,17 @@ $ins = $user -> insurance();
 
 <div class="div_select">
     <p>Выбор  страхования</p>
-    <select name="" id="">
-        <option value="">Все</option>
-        <?php foreach($cat as $item) { ?>
-            <option value="1"><?=$item[1]?></option>
-        <?php } ?>
-    </select>
+    <form action="" method="GET">
+        <select name="cat_id" id="">
+            <option value="0">Все</option>
+            <?php foreach($cat as $item) { ?>
+                <option value="<?=$item[0]?>"><a href="agent_insurance_sort.php?cat_id=<?=$item[0]?>"><?=$item[1]?></a></option>
+            <?php } ?>
+        </select>
+        <input type="submit" value="Отфильтровать">
+    </form>
 </div>
+
 <div class="div_programs">
     <?php foreach($ins as $item) { ?>
         <div class="div_programm">
@@ -51,7 +59,7 @@ $ins = $user -> insurance();
                     <p>400 000₽</p>
                 </div> -->
             </div>
-            <button type="button" class="head_but" data-bs-toggle="modal" data-bs-target="#exampleModal1" value="<?=$item[0]?>">Изменить</button>
+            <button type="button" class="head_but"><a href="agent_insurance_up.php?id=<?=$item[0]?>">Изменить</a></button>
         </div>
     <?php } ?>
     <!-- <div class="div_programm">
@@ -98,15 +106,15 @@ $ins = $user -> insurance();
             </div>
             <div>
                 <p>Название</p>
-                <input type="text" name = "name" class="modal-body-input" name="" id="">
+                <input type="text" name = "name" class="modal-body-input">
             </div>
             <div>
                 <p>Стоимость</p>
-                <input type="text" name = "price" class="modal-body-input" name="" id="">
+                <input type="text" name = "price" class="modal-body-input">
             </div>
             <div>
                 <p>Описание</p>
-                <input type="text" name = "descr" class="modal-body-input" name="" id="">
+                <input type="text" name = "descr" class="modal-body-input">
             </div>
             <div>
                 <p>Срок действия</p>

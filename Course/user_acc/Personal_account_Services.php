@@ -1,6 +1,12 @@
 <?php
 session_start();
 require_once "../includes/nav_user.php"; 
+
+require_once "../database/User.php";
+
+$user = new User();
+
+$ins = $user -> insurance();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,16 +51,17 @@ require_once "../includes/nav_user.php";
                     <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" minlength="18" maxlength="100">
                 </div> -->
                 <div class="Service_descr">
-                    <p>Электронный страховой полис ОСАГО</p>
-                    <div class="Service_descr_div1">
-                        <input type="text" placeholder="Номер полиса">
-                        <a href="">Скачать файл</a>
-                    </div>
-                    <div class="Service_descr_div1">
-                        <a href="catalog.php">+ Оформить новый</a>
-                    </div>
+                    <?php foreach($ins as $item) { ?>
+                        <p><?=$item[6]?></p>
+                        <div class="Service_descr_div1">
+                            <input type="text" placeholder="Номер полиса" value = "<?=$item[0]?>">
+                            <a href="">Скачать файл</a>
+                        </div>
+                        <div class="Service_descr_div1">
+                        </div>
+                    <?php } ?>
                 </div>
-                
+                <a href="../catalog.php">+ Оформить новый</a>
                 <div class="div_buttons">
                     <button type="submit" class="but1">Отменить</button>
                     <button type="submit" class="but2">Сохранить</button>

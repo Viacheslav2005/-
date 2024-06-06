@@ -1,5 +1,11 @@
 <?php
 include "../Course/includes/nav_user.php";
+
+require_once "database/Query.php";
+
+$cover = new Query();
+
+$coverage = $cover -> coverage($_GET["id"]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +61,7 @@ include "../Course/includes/nav_user.php";
                 </ul>
             </div>
         </div>
-        <div class="catalog">
+        <!-- <div class="catalog">
             <div class="catalog_div1">
                 <p>Страхование вождения</p>
                 <button onclick="document.location='/health_driving.php'">Подробнее</button>
@@ -64,35 +70,45 @@ include "../Course/includes/nav_user.php";
                 <p>Страхование для спорта</p>
                 <button onclick="document.location='/health_sport.php'">Подробнее</button>
             </div>
+        </div> -->
+        <!-- <div class="catalog">
+            <?php foreach($coverage as $item) {?>
+                <div class="catalog_div1">
+                    <p><?=$item[1]?></p>
+                    <button onclick="document.location='/property_apartment.php'">Подробнее</button>
+                </div>
+            <div class="catalog_div1">
+                <p>Ответственность перед соседями</p>
+                <button onclick="document.location='/property_fire.php'">Подробнее</button>
+            </div>
+            <?php } ?>
+        </div> -->
+        <div class="card_div">
+            <?php foreach($coverage as $item) {?>
+                <form action="/user/add_order.php" method="POST">
+                    <div class="div_programms">
+                        <div class="div_programms_div1">
+                            <input type="hidden" name="id" value = "<?=$item[0]?>">
+                            <p><input readonly type="text" name="name" id="" value="<?=$item[1]?>"></p>
+                            <div class="valid_period">
+                                <span><input type="text" readonly name="price" id="" value="<?=$item[2]?>">₽</span>/ <input readonly type="text" name="" id="" value = "<?=$item[6]?>"> месяцев
+                            </div>
+                            <p>Страховая сумма</p>
+                            <span><?=$item[3]?>₽</span>
+                        </div>
+                        <div class="div_descrs3">
+                            <!-- <p><input readonly type="text" name="descr" id="" value = "<?=$item[5]?>"></p> -->
+                            <textarea name="descr" id="" value = "<?=$item[5]?>" rows="5" cols="28"><?=$item[5]?></textarea>
+                        </div>
+                        <?php if(isset($_SESSION['auth'])) {?>
+                            <button type = "submit">Купить</button>
+                        <?php } else { ?>
+                        <?php } ?>
+                    </div>
+                </form>
+            <?php } ?>
         </div>
     </div>
-    <!-- <footer class="footer1">
-        <div class="footer_div1">
-            <a href="">Главная</a>
-            <a href="">О нас</a>
-            <a href="">Офисы</a>
-            <a href="">Новости</a>
-            <a href="">Спецпредложения</a>
-        </div>
-        <div class="footer_div2">
-            <p>450000, г. Уфа, <br> ул. Кирова, д. 65/1</p>
-            <p>График работы главного<br> офиса 450000, г. Уфа, <br>
-                ул. Кирова, д. 65/1 <br>
-                Пн. - Чт. с 9:00 до 18:00 <br>
-                Пт.  с 9:00 до 16:45  <br>
-                Сб-Вс выходной
-            </p>
-        </div>
-        <div class="footer_div3">
-            <p class="footer_div3_text2">Адрес для почтовых отправлений: <br>450000, г. Уфа</p>
-            <p class="footer_div3_text">тел.: +7 (999) 888 77 66</p>
-            <p class="footer_div3_text2">Email для связи с нами yandex@mail.ru</p>
-            <div class="footer_div3_icon">
-                <a href=""><img src="/design/img/vk.png" alt=""></a>
-                <a href=""><img src="/design/img/telegramm.png" alt=""></a>
-            </div>
-        </div>    
-    </footer> -->
     <?php require_once "footer.php";?>
 
 </body>

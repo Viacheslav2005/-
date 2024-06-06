@@ -1,6 +1,6 @@
 <?php
 require_once "connectdb.php";
-
+session_start();
 class User extends Connect {
 
     protected $name;
@@ -16,6 +16,8 @@ class User extends Connect {
     protected $age;
 
     protected $role;
+
+    protected $ins_id;
 
     protected $check;
 
@@ -89,6 +91,24 @@ class User extends Connect {
         }
     }
 
+    public function add_order($ins_id, $price) {
+        $this -> check = mysqli_query($this->connection, "SELECT * FROM `order` WHERE `insurance_id` = '$ins_id'");
+        $date = date('Y-m-d');
+        $id_user = $_SESSION['user_id'];
+        if(mysqli_num_rows($this->check) == 0) {
+            $_SESSION["message"] = "Заказ успешно создан";
+            return mysqli_query($this->connection, "INSERT INTO `order`(`insurance_id`, `id_user`, `total_price`, `date_of_order`) VALUES ('$ins_id','$id_user','$price','$date')");
+        } else {
+            $_SESSION["message"] = "Ошибка добавления";
+        }
+    }
+
+    public function insurance() {
+        $id_user = $_SESSION['user_id'];
+        $query = "SELECT * FROM `order` INNER JOIN `insurance` ON insurance.insurance_id = order.insurance_id WHERE `id_user` = '$id_user'";
+        $result = mysqli_fetch_all(mysqli_query($this->connection, $query));
+        return $result;
+    }
     // public function signup($name, $date, $phone, $email, $password, $age) {
     //     $this -> validate($name, $date, $phone, $email, $password, $age);
     //     if (!$this->error_valid) {

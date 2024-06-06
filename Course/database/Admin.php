@@ -28,6 +28,12 @@ class Admin extends Connect
         $result = mysqli_fetch_all(mysqli_query($this->connection, $query));
         return $result;
     }
+    public function category($id)
+    {
+        $query = "SELECT * FROM `category` WHERE `category_id` = $id";
+        $result = mysqli_fetch_assoc(mysqli_query($this->connection, $query));
+        return $result;
+    }
 
     public function add_agent($name_agent, $phone_agent, $email_agent, $pass_agent)
     {
@@ -90,8 +96,10 @@ class Admin extends Connect
     public function add_category($name_cat, $image_cat)
     {
         $this->check = mysqli_query($this->connection, "SELECT * FROM `category` WHERE `category_name` = '$name_cat'");
-        $query = "INSERT INTO `category`(`category_name`, `image`) VALUES ('$name_cat','$image_cat')";
+        $file = $image_cat["name"];
+        $query = "INSERT INTO `category`(`category_name`, `image`) VALUES ('$name_cat','$file')";
         if (mysqli_num_rows($this->check) == 0) {
+            move_uploaded_file($image_cat["tmp_name"] , "../design/img" . $file);
             $_SESSION["message"] = "Категория успешно добавленна";
             return mysqli_query($this->connection, $query);
         } else {
@@ -99,21 +107,26 @@ class Admin extends Connect
         }
     }
 
-    public function update_category($name_cat, $image_cat) {
-        $query1 = mysqli_fetch_assoc(mysqli_query($this->connection, "SELECT * FROM `category` WHERE `category_name` = '$name_cat'"));
+    public function update_category($id, $name_cat, $image_cat) {
+        $query1 = mysqli_fetch_assoc(mysqli_query($this->connection, "SELECT * FROM `category` WHERE `category_id` = $id"));
         $query = "UPDATE `category` SET ";
+        var_dump($id);
+        var_dump($name_cat);
+        var_dump($image_cat);
         if ($query1["category_name"] != $name_cat) {
-            $query1 .= " `category_name`='$name_cat', ";
+            $query .= " `category_name`='$name_cat', ";
             $this->check_update = true;
         }
         if ($query1["image"] != $image_cat) {
-            $query1 .= " `image`='$image_cat', ";
+            $file = $image_cat["name"];
+            $query .= " `image`= '" . $file . "', ";
+            move_uploaded_file($image_cat['tmp_name'], "../design/img/" . $image_cat['name']);
             $this->check_update = true;
         }
 
         if ($this->check_update) {
             $query = substr($query, 0, -2);
-            $query .= " WHERE `category_name` = $name_cat";
+            $query .= " WHERE `category_id` = $id";
             $result = mysqli_query($this->connection, $query);
             if ($result) {
                 return $_SESSION["message"] = "Данные обновленны";

@@ -1,5 +1,10 @@
 <?php
 include "../Course/includes/nav_user.php";
+require_once "database/Query.php";
+
+$cat = new Query();
+
+$user = $cat -> categories();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,8 +18,9 @@ include "../Course/includes/nav_user.php";
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </head>
 <body>
+    <p class="text1">Каталог категорий страхования</p>
     <div class="category">
-        <div class="category_up">
+        <!-- <div class="category_up">
             <div class="category_up_text">
                 <div>
                     <p class="category_up_text1">Автомобили</p>
@@ -25,9 +31,9 @@ include "../Course/includes/nav_user.php";
             <div>
                 <img src="/design/img/2019-Dodge-Challenger-PNG-HD-Isolated 1.png" alt="">
             </div>
-        </div>
+        </div> -->
         <div class="category_down">
-            <div class="property">
+            <!-- <div class="property">
                 <div class="property_text">
                     <div>
                         <p class="property_text1">Имущество</p>
@@ -50,7 +56,22 @@ include "../Course/includes/nav_user.php";
                 <div>
                     <img src="/design/img/Emergency.png" alt="">
                 </div>
-            </div>
+            </div> -->
+            <?php foreach($user as $item) { ?>
+                <div class="cards">
+                    <div class="cards_text">
+                        <div>
+                            <p class="cards_text1"><?=$item[1]?></p>
+                            <p class="cards_text2"></p>
+                        </div>
+                        <a href="/<?=$item[3]?>?id=<?=$item[0]?>">Подробнее</a>
+                        <!-- <button onclick="document.location='/<?=$item[3]?>'" value = "<?=$item[0]?>">Подробнее</button> -->
+                    </div>
+                    <div>
+                        <img src="/design/img/<?=$item[2]?>" alt="">
+                    </div>
+                </div>
+            <?php } ?>
         </div>
     </div>
     <div class="news"> <!-- Сделать через foreach-->
