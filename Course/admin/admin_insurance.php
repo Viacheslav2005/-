@@ -18,7 +18,7 @@ $result = $category -> categories();
       <div class="card">
         <div class="card1">
             <p><?=$item[1]?></p>
-            <button class="but1"><a href="admin_insurance_up.php?id=<?=$item[0]?>">Изменить</a></button>
+            <button class="but1" onclick="document.location = 'admin_insurance_up.php?id=<?=$item[0]?>'">Изменить</button>
         </div>
         <div>
             <img src="../design/img/<?=$item[2]?>" alt="">

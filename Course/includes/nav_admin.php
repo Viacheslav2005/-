@@ -24,6 +24,7 @@ if (isset($_SESSION["message"])) {
         <button class="head_but" onclick="document.location='../admin/admin_client.php'">Клиенты</button>
         <button class="head_but" onclick="document.location='../admin/admin_agent.php'">Агенты</button>
         <button class="head_but" onclick="document.location='../admin/admin_insurance.php'">Виды страхования</button>
+        <button class="head_but" onclick="document.location='../admin/admin_news.php'">Создать новость</button>
         <div class="div_sign">
             <?php 
             if(isset($_SESSION['auth'])) { ?>

@@ -34,8 +34,16 @@ if (isset($_SESSION["message"])) {
         <div class="div_sign">
             <?php 
             if(isset($_SESSION['auth'])) { ?>
-                <a href="../user_acc"><img src="../design/img/image 2.png" alt=""></a>
-                <a href="../signout.php"><img src="../design/img/Exit.png" alt=""></a>
+                <?php if($_SESSION["role"] == "admin") { ?>
+                    <a href="../admin"><img src="../design/img/image 2.png" alt=""></a>
+                    <a href="../signout.php"><img src="../design/img/Exit.png" alt=""></a>
+                <?php } elseif($_SESSION["role"] == "agent") { ?>
+                    <a href="../agent"><img src="../design/img/image 2.png" alt=""></a>
+                    <a href="../signout.php"><img src="../design/img/Exit.png" alt=""></a>
+                <?php } else { ?>
+                    <a href="../user_acc"><img src="../design/img/image 2.png" alt=""></a>
+                    <a href="../signout.php"><img src="../design/img/Exit.png" alt=""></a>
+                <?php } ?>
             <?php } else { ?>
                 <a href="../signin.php"><img src="../design/img/image 2.png" alt=""></a>
             <?php } ?>

@@ -2,6 +2,7 @@
 require_once "../database/User.php";
 session_start();
 $user = new User();
+
 if(empty($user->signin($_POST["email"], $_POST["password"]))){
     $role = $_SESSION['role'];
     if($role == "user"){
@@ -15,7 +16,7 @@ if(empty($user->signin($_POST["email"], $_POST["password"]))){
         exit(); 
     }
 } else {
-    header("Location: /signin.php"); 
+    header("Location: /signin.php");
     exit();
 }
 ?>

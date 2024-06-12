@@ -21,6 +21,8 @@ class User extends Connect {
 
     protected $check;
 
+    protected $check2;
+
     protected $check_update;
 
     private $error_valid = false;
@@ -29,13 +31,17 @@ class User extends Connect {
 
     public function signin($email, $password) {
         $this -> check = mysqli_query($this->connection, "SELECT * FROM `users` WHERE `email` = '$email'");
-        if(mysqli_num_rows($this->check) == 1){
+        if(mysqli_num_rows($this->check) == 1){ 
             $check_2 = mysqli_fetch_assoc($this->check);
-            $_SESSION['user_id'] = $check_2["id_user"]; 
-            $_SESSION['role'] = $check_2["role"];
-            $_SESSION['auth'] = true;
-            $_SESSION['message'] = "Вы успешно вошли!";
-        }else{
+            if($password == $check_2["password"]){
+                $_SESSION['user_id'] = $check_2["id_user"];
+                $_SESSION['role'] = $check_2["role"];
+                $_SESSION['auth'] = true;
+                $_SESSION['message'] = "Вы успешно вошли!";
+            } else {
+                $_SESSION['message'] = "Неправильный логин или пароль!";
+            }
+        } else {
             $_SESSION["message"] = "Такого пользователя не существует";
         }
     }
@@ -91,8 +97,12 @@ class User extends Connect {
         }
     }
 
-    public function add_order($ins_id, $price) {
+    public function add_order($ins_id) {
         $this -> check = mysqli_query($this->connection, "SELECT * FROM `order` WHERE `insurance_id` = '$ins_id'");
+        $this -> check2 = mysqli_query($this->connection, "SELECT * FROM `insurance` WHERE `insurance_id` = '$ins_id'");
+        $query = mysqli_fetch_assoc($this -> check2);
+        $price = $query["price"];
+        var_dump($price);
         $date = date('Y-m-d');
         $id_user = $_SESSION['user_id'];
         if(mysqli_num_rows($this->check) == 0) {

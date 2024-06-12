@@ -63,15 +63,6 @@ span {
     font-family: "SF Pro Display";
     font-size: 36px;
 }
-.news_card {
-    display: flex;
-    gap: 5em;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-around;
-    font-family: "SF Pro Display";
-    font-size: 20px;
-}
 .news_card_img {
     width: 20vw;
     height: 25vh;

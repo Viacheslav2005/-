@@ -5,6 +5,8 @@ require_once "database/Query.php";
 $cat = new Query();
 
 $user = $cat -> categories();
+
+$news = $cat -> news();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,22 +78,16 @@ $user = $cat -> categories();
     </div>
     <div class="news"> <!-- Сделать через foreach-->
         <p class="news_text">Последние новости</p>
-        <div class="news_card">
-            <div>
-                <img src="/design/img/image 10.png" alt="" class="news_card_img">
-                <p>"Страховая фирма '???' рада сообщить о новом партнерстве с крупным медицинским центром, что позволит нашим клиентам получить доступ к качественным медицинским услугам по специальным тарифам. </p>
-                <p><img src="/design/img/calendar.png" alt="">1 апр 2024</p>
-            </div>
-            <div>
-                <img src="/design/img/image 11.png" alt="" class="news_card_img">
-                <p>Также, мы рады объявить об расширении списка страховых продуктов, включая защиту от непредвиденных ситуаций на дороге и в доме, а также страхование жизни и здоровья. </p>
-                <p><img src="/design/img/calendar.png" alt="">1 апр 2024</p>
-            </div>
-            <div>
-                <img src="/design/img/image 12.png" alt="" class="news_card_img">
-                <p>Наша компания постоянно работает над улучшением услуг и готова помочь каждому клиенту в подборе оптимального страхового плана. С нами вы можете быть уверены в своей защите и спокойно смотреть в будущее."</p>
-                <p><img src="/design/img/calendar.png" alt="">1 апр 2024</p>
-            </div>
+        <div class="news_cards1">
+            <?php foreach($news as $item) { ?>
+                <div class="news_card">
+                    <div>
+                        <img src="/design/img/<?=$item[3]?>" alt="" class="news_card_img">
+                        <p><?=$item[1]?></p>
+                        <p><img src="/design/img/calendar.png" alt=""><?=$item[2]?></p>
+                    </div>
+                </div>
+            <?php } ?>
         </div>
     </div>
     <!-- <footer class="footer1">

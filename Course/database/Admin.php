@@ -20,6 +20,12 @@ class Admin extends Connect
 
     protected $pass;
 
+    protected $name_news;
+
+    protected $date_news;
+
+    protected $file_news;
+
     protected $check_update = false;
 
     public function categories()
@@ -35,13 +41,13 @@ class Admin extends Connect
         return $result;
     }
 
-    public function add_agent($name_agent, $phone_agent, $email_agent, $pass_agent)
+    public function add_agent($name_agent, $phone_agent, $email_agent, $pass)
     {
         $query = "SELECT * FROM `users` WHERE `FIO` = '$name_agent'";
         $this->check = mysqli_query($this->connection, $query);
         if (mysqli_num_rows($this->check) == 0) {
             $_SESSION["message"] = "Агент успешно создан";
-            return mysqli_query($this->connection, "INSERT INTO `users`(`FIO`,`phone`, `email`, `password`, `role`) VALUES ('$name_agent','$phone_agent','$email_agent','$pass_agent','agent')");
+            return mysqli_query($this->connection, "INSERT INTO `users`(`FIO`,`phone`, `email`, `password`, `role`) VALUES ('$name_agent','$phone_agent','$email_agent','$pass','agent')");
         } else {
             $_SESSION["message"] = "Ошибка добавления";
         }
@@ -134,5 +140,22 @@ class Admin extends Connect
         } else {
             return $_SESSION["message"] = "Данные актуальны";
         }
+    }
+
+    public function create_news($name_news, $date_news, $file_news) {
+        $file = $file_news["name"];
+        $query = "INSERT INTO `news`(`descr`, `date_of_publication`, `image`) VALUES ('$name_news','$date_news', '$file')";
+        move_uploaded_file($file_news['tmp_name'], "../design/img/" . $file);
+        return mysqli_query($this->connection, $query);
+    }
+    
+    public function delete_news($id_new) {
+        $query = "DELETE FROM `news` WHERE `id_news` = $id_new";
+        return mysqli_query($this->connection, $query);
+    }
+
+    public function news() {
+        $query  = "SELECT * FROM `news`";
+        return mysqli_fetch_all(mysqli_query($this -> connection, $query));
     }
 }

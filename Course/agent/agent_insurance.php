@@ -4,15 +4,36 @@ require_once "../database/Query.php";
 
 $user = new Query();
 
-$result = $user -> users();
+$cat_id = isset($_GET["cat_id"])? $_GET["cat_id"] : 0;
+
+$ins_name = isset($_GET["search"])? $_GET["search"] : false;
+
+$page =  isset($_GET['page']) ? $_GET['page'] : 1;
 
 $cat = $user -> categories();
 
-// $ins = $user -> insurance();
+$ins = $user -> insurance();
 
-$ins = $user -> sort($_GET["cat_id"]);
+$check = $user -> insurance_nou();
 
-$sort = $user -> sort($_GET["cat_id"]);
+$paginate_count = 3;
+
+$sort = $user -> sort($cat_id, $paginate_count);
+
+$search = $user -> search($ins_name, $paginate_count);
+
+$result_1= $user -> all_cat_page($page, $paginate_count);
+
+// $param = "";
+
+// if($cat_id) {
+//     $param .= "cat_id=$cat_id";
+//     $sort = $user -> sort($cat_id, $paginate_count);
+// }
+// if($ins_name) {
+//     $param .= "cat_id=$cat_id";
+//     $search = $user -> search($ins_name, $paginate_count);
+// }
 ?>
 
 <head>
@@ -33,60 +54,89 @@ $sort = $user -> sort($_GET["cat_id"]);
         </select>
         <input type="submit" value="Отфильтровать">
     </form>
+    <form action="" method="GET">
+        <input type="text" name = "search" placeholder="Поиск">
+        <input type="submit">
+    </form>
 </div>
-
-<div class="div_programs">
-    <?php foreach($ins as $item) { ?>
-        <div class="div_programm">
-            <div class="div_programm_div1">
-                <p><?=$item[1]?></p>
-                <p><span><?=$item[2]?>₽</span>/<?=$item[6]?> месяцев</p>
-                <p>Страховая сумма</p>
-                <span><?=$item[3]?>₽</span>
-            </div>
-            <div class="div_descr1">
-                <div class="div_descr2">
-                    <p><?=$item[5]?></p>
-                    <!-- <p>Отделка</p> -->
-                    <!-- <p>400 000₽</p> -->
+<div class="div_programs"> 
+    <!-- вывод поиска -->
+    <?php if($ins_name)  { ?> 
+        <?php foreach($search as $item) { ?>
+            <div class="div_programm">
+                <div class="div_programm_div1">
+                    <p><?=$item[1]?></p>
+                    <p><span><?=$item[2]?>₽</span>/<?=$item[6]?> месяцев</p>
+                    <p>Страховая сумма</p>
+                    <span><?=$item[3]?>₽</span>
                 </div>
-                <!-- <div class="div_descr2">
-                    <p>Домашнее имущество</p>
-                    <p>400 000₽</p>
+                <div class="div_descr1">
+                    <div class="div_descr2">
+                        <p><?=$item[5]?></p>
+                    </div>
                 </div>
-                <div class="div_descr2">
-                    <p>Гражданская ответственность</p>
-                    <p>400 000₽</p>
-                </div> -->
+                <button type="button" class="head_but" onclick="document.location='agent_insurance_up.php?id=<?=$item[0]?>'">Изменить</button>
             </div>
-            <button type="button" class="head_but"><a href="agent_insurance_up.php?id=<?=$item[0]?>">Изменить</a></button>
-        </div>
+        <?php } ?>
+        <!-- вывод всех записей без поиска и сортировки (не работает почему)-->
+    <?php } if($cat_id == false) { ?>
+        <?php foreach(mysqli_fetch_all($result_1) as $item) { ?>
+            <div class="div_programm">
+                <div class="div_programm_div1">
+                    <p><?=$item[1]?></p>
+                    <p><span><?=$item[2]?>₽</span>/<?=$item[6]?> месяцев</p>
+                    <p>Страховая сумма</p>
+                    <span><?=$item[3]?>₽</span>
+                </div>
+                <div class="div_descr1">
+                    <div class="div_descr2">
+                        <p><?=$item[5]?></p>
+                    </div>
+                </div>
+                <button type="button" class="head_but" onclick="document.location='agent_insurance_up.php?id=<?=$item[0]?>'">Изменить</button>
+            </div>
+        <?php } ?>
+        <!-- вывод по категориям -->
+    <?php } if($cat_id) {  ?>
+        <?php foreach($sort as $item) { ?>
+            <div class="div_programm">
+                <div class="div_programm_div1">
+                    <p><?=$item[1]?></p>
+                    <p><span><?=$item[2]?>₽</span>/<?=$item[6]?> месяцев</p>
+                    <p>Страховая сумма</p>
+                    <span><?=$item[3]?>₽</span>
+                </div>
+                <div class="div_descr1">
+                    <div class="div_descr2">
+                        <p><?=$item[5]?></p>
+                    </div>
+                </div>
+                <button type="button" class="head_but"  onclick="document.location='agent_insurance_up.php?id=<?=$item[0]?>'">Изменить</button>
+            </div>
+        <?php } ?>
     <?php } ?>
-    <!-- <div class="div_programm">
-        <div class="div_programm_div1">
-            <p>Программа 1</p>
-            <p><span>3 400₽</span>/год</p>
-            <p>Страховая сумма</p>
-            <span>50 000₽</span>
-        </div>
-        <div class="div_descr1">
-            <div class="div_descr2">
-                <p>Отделка</p>
-                <p>400 000₽</p>
-            </div>
-            <div class="div_descr2">
-                <p>Домашнее имущество</p>
-                <p>400 000₽</p>
-            </div>
-            <div class="div_descr2">
-                <p>Гражданская ответственность</p>
-                <p>400 000₽</p>
-            </div>
-        </div>
-        <button>Изменить</button>
-    </div> -->
-</div>
-
+    <!-- Пагинация -->
+    <nav class="nav" aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li> 
+            <!-- $result_1 это вывод всех товаров  -->
+            <?php
+            for ($i = 1; $i <= ceil(mysqli_num_rows($check) / $paginate_count); $i++) { ?>
+                <li class="page-item"><a class="page-link" href="?page=<?=$i?>&search=<?=$ins_name?>&cat_id=<?=$cat_id?>">
+                        <?=$i?></a></li>
+            <?php } ?>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <button onclick="document.location = 'agent_insurance.php'">Очистить форму поиска</button>
 <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

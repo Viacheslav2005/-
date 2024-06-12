@@ -27,7 +27,6 @@ if (isset($_SESSION["message"])) {
                 <td>ФИО</td>
                 <td>Телефон</td>
                 <td>Логин</td>
-                <td>Пароль</td>
                 <td>Изменить</td>
                 <td>Удалить</td>
             </tr>
@@ -39,10 +38,10 @@ if (isset($_SESSION["message"])) {
                         <td><input type="hidden" name = "id" value="<?=$item[0]?>"><input type="text" name = "FIO" value="<?=$item[1]?>"></td>
                         <td><input type="text" name = "phone" value="<?=$item[3]?>"></td>
                         <td><input type="text" name = "email" value="<?=$item[4]?>"></td>
-                        <td><input type="text" name = "password" value="<?=$item[5]?>"></td>
                         <td><button type="submit"><img src="../design/img/Change.png" alt=""></button></td>
                     </form>
-                    <td><a href="admin_agent_delete.php?id=<?=$item[0]?>"><img src="../design/img/Delete.png" alt=""></a></td>                </tr>
+                    <td><a href="admin_agent_delete.php?id=<?=$item[0]?>"><img src="../design/img/Delete.png" alt=""></a></td>                
+                </tr>
             <?php } ?>
         </tbody>
     </table>
@@ -70,10 +69,6 @@ if (isset($_SESSION["message"])) {
             <div>
                 <p>Логин</p>
                 <input type="text" name = "email" class="modal-body-input" name="" id="" required>
-            </div>
-            <div>
-                <p>Пароль</p>
-                <input type="password" name = "password" class="modal-body-input" name="" id="" required>
             </div>
         </div>  
 

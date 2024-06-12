@@ -53,16 +53,19 @@ $coverage = $cover -> coverage($_GET["id"]);
                     <div class="div_programms">
                         <div class="div_programms_div1">
                             <input type="hidden" name="id" value = "<?=$item[0]?>">
-                            <p><input readonly type="text" name="name" id="" value="<?=$item[1]?>"></p>
+                            <p><?=$item[1]?></p>
+                            <!-- <p><input readonly type="text" name="name" id="" value="<?=$item[1]?>"></p> -->
                             <div class="valid_period">
-                                <span><input type="text" readonly name="price" id="" value="<?=$item[2]?>">₽</span>/ <input readonly type="text" name="" id="" value = "<?=$item[6]?>"> месяцев
+                                <p><span><?=$item[2]?>₽</span>/<?=$item[6]?>месяцев</p>
+                                <!-- <span><input type="text" readonly name="price" id="" value="<?=$item[2]?>">₽</span>/ <input readonly type="text" name="" id="" value = "<?=$item[6]?>"  class="month"> месяцев -->
                             </div>
                             <p>Страховая сумма</p>
                             <span><?=$item[3]?>₽</span>
                         </div>
                         <div class="div_descrs3">
                             <!-- <p><input readonly type="text" name="descr" id="" value = "<?=$item[5]?>"></p> -->
-                            <textarea name="descr" id="" value = "<?=$item[5]?>" rows="5" cols="28"><?=$item[5]?></textarea>
+                            <p><?=$item[5]?></p>
+                            <!-- <textarea readonly name="descr" id="" value = "<?=$item[5]?>" rows="5" cols="28"><?=$item[5]?></textarea> -->
                         </div>
                         <?php if(isset($_SESSION['auth'])) {?>
                             <button type = "submit">Купить</button>

@@ -86,3 +86,34 @@ span {
     align-items: center;
     justify-content: center;
 }
+.form_news {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card_news {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.news_card {
+    display: flex;
+    gap: 5em;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    font-family: "SF Pro Display";
+    font-size: 20px;
+}
+.news_card_img {
+    width: 20vw;
+    height: 25vh;
+}
+.news_card div {
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}

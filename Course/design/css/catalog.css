@@ -221,3 +221,12 @@ body {
     font-size: 32px;
     color: #fff;
 }
+.news_cards1 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5%;
+    font-family: "SF Pro Display";
+    font-size: 20px;
+}

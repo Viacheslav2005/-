@@ -206,3 +206,6 @@
 .valid_period input {
     width: 5vw;
 }
+.month {
+    width: 2vw;
+}
