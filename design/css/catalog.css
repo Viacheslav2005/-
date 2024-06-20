@@ -1,0 +1,234 @@
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('fonts/SF Pro Display.otf');
+}
+@font-face {
+    font-family: 'Inter';
+    src: url('fonts/Inter.otf');
+}
+body {
+    background: #f0f0f0;
+    overflow-x: hidden;
+}
+.text1 {
+    font-family: "SF Pro Display";
+    font-size: 64px;
+    text-align: center;
+    color: #488084;
+}
+.category {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+    gap: 5em;
+}
+.category_up {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80vw;
+    margin: 0 auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 2.5rem;
+    padding: 0 2%;
+    background: #fff;
+
+}
+.category_up button {
+    background-color: #488084;
+    padding: 5% 10%;
+    border-radius: 1rem;
+    font-family: "SF Pro Display";
+    font-size: 32px;
+    color: #fff;
+}
+.category_up_text {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    font-family: "SF Pro Display";
+    gap: 10em;
+}
+.category_up_text1 {
+    font-size: 64px;
+}
+.category_up_text2 {
+    color: #488084;
+    font-size: 40px;
+}
+.category_down {
+    margin: 0 auto;
+    gap: 5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 80vw;
+
+}
+.property {
+    width: 40vw;
+    border: 1px solid #e0e0e0;
+    border-radius: 2.5rem;
+    padding: 0 2%;
+    display: flex;
+    flex-direction: row;
+    padding: 2%;
+    background: #fff;
+}
+.property img {
+    width: 20vw;
+    height: 12.5vw;
+}
+.property_text {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    font-family: "SF Pro Display";
+    gap: 5em;
+}
+.property_text1 {
+    font-size: 40px;
+}
+.property_text2 {
+    font-size: 20px;
+}
+.property button {
+    background-color: #488084;
+    padding: 5% 10%;
+    border-radius: 1rem;
+    font-family: "SF Pro Display";
+    font-size: 32px;
+    color: #fff;
+}
+.health {
+    width: 40vw;
+    border: 1px solid #e0e0e0;
+    border-radius: 2.5rem;
+    padding: 0 2%;
+    display: flex;
+    flex-direction: row;
+    padding: 2%;
+    background: #fff;
+}
+.health img {
+    width: 20vw;
+    height: 12.5vw;
+}
+.health_text {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    font-family: "SF Pro Display";
+    gap: 5em;
+}
+.health_text1 {
+    font-size: 40px;
+}
+.health_text2 {
+    font-size: 20px;
+}
+.health button {
+    background-color: #488084;
+    padding: 5% 10%;
+    border-radius: 1rem;
+    font-family: "SF Pro Display";
+    font-size: 32px;
+    color: #fff;
+}
+.footer1 {
+    width: 100vw;
+    margin-top: 5%;
+    background: #488084;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 2.5%;
+}
+.footer_div1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.footer_div1 a {
+    font-family: "SF Pro Display";
+    font-size: 24px;
+    color: #fff;
+}
+.footer_div2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.footer_div2 p {
+    font-family: "SF Pro Display";
+    font-size: 18px;
+    color: #fff;
+}
+.footer_div3_text2 {
+    font-family: "SF Pro Display";
+    font-size: 18px;
+    color: #fff;
+}
+.footer_div3_icon {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+.footer_div3_text {
+    font-family: "SF Pro Display";
+    font-size: 24px;
+    color: #fff;
+}
+
+/* Вывод карточки категории */
+
+.cards {
+    width: 35vw;
+    border: 1px solid #e0e0e0;
+    border-radius: 2.5rem;
+    display: flex;
+    flex-direction: row;
+    padding: 2%;
+    gap: 7.5%;
+    background: #fff;
+}
+.cards img {
+    width: 20vw;
+    height: 12.5vw;
+}
+.cards_text {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    font-family: "SF Pro Display";
+    gap: 5em;
+}
+.cards_text1 {
+    font-size: 40px;
+}
+.cards_text2 {
+    font-size: 20px;
+}
+.cards a {
+    background-color: #488084;
+    text-decoration: none;
+    padding: 5% 10%;
+    border-radius: 1rem;
+    font-family: "SF Pro Display";
+    font-size: 32px;
+    color: #fff;
+}
+.news_cards1 {
+    display: flex;
+    width: 80vw;
+    margin: 0 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5%;
+    font-family: "SF Pro Display";
+    font-size: 20px;
+}

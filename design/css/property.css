@@ -1,0 +1,217 @@
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('fonts/SF Pro Display.otf');
+}
+@font-face {
+    font-family: 'Inter';
+    src: url('fonts/Inter.otf');
+}
+.div1 {
+    background-color: #f0f0f0;
+    overflow-x: hidden;
+}
+.text1 {
+    font-family: "SF Pro Display";
+    font-size: 64px;
+    text-align: center;
+    color: #488084;
+}
+.text2 {
+    font-family: "SF Pro Display";
+    font-size: 40px;
+    text-align: center;
+}
+.div_descr1 {
+    margin: 5% auto;
+    width: 75vw;
+    border-radius: 2rem;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.div_descr2 {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20vw;
+    padding: 2%;
+}
+.div_descr2 p {
+    color: #000;
+}
+.div_descr3 {
+    background-color: #488084;
+    font-size: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    width: 100vw;
+}
+.div_descr3 p {
+    width: 60vw;
+    padding: 2.5% 5%;
+}
+.catalog {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5em;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.catalog_div1 {
+    background-color: #fff;
+    padding: 2.5% 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 2.5rem;
+}
+.catalog_div1 p {
+    font-family: "SF Pro Display";
+    font-size: 36px;
+}
+.catalog_div1 button {
+    font-family: "SF Pro Display";
+    font-size: 32px;
+    color: #fff;
+    background-color: #488084;
+    padding: 2.5% 20%;
+    border-radius: 1rem;
+}
+.footer1 {
+    width: 100vw;
+    margin-top: 5%;
+    background: #488084;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 2.5%;
+}
+.footer_div1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.footer_div1 a {
+    font-family: "SF Pro Display";
+    font-size: 24px;
+    color: #fff;
+}
+.footer_div2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.footer_div2 p {
+    font-family: "SF Pro Display";
+    font-size: 18px;
+    color: #fff;
+}
+.footer_div3_text2 {
+    font-family: "SF Pro Display";
+    font-size: 18px;
+    color: #fff;
+}
+.footer_div3_icon {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+.footer_div3_text {
+    font-family: "SF Pro Display";
+    font-size: 24px;
+    color: #fff;
+}   
+
+.card_div {
+    width: 80vw;
+    gap: 2%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.div_programms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid #488084;
+    width: 25vw;
+    min-height: 60vh;
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.25);
+    font-family: "SF Pro Display";
+    font-size: 30px;
+    margin-top: 5%;
+}
+.div_programms_div1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.div_programms_div1 p {
+    margin: 0;
+}
+.div_programms_p1 {
+    font-size: 36px;
+    color: #488084;
+}
+.div_programms button {
+    background-color: #488084;
+    color: #fff;
+    padding: 5% 10%;
+    border-radius: 1rem;
+}
+.div_descrs1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.div_descrs2 {
+    width: 20vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.div_descrs2 :first-child {
+    width: 10vw;
+}
+.div_descrs1 p {
+    margin: 2% 0;
+    font-family: "SF Pro Display";
+    font-size: 20px;
+}
+.div_descrs3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.valid_period {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.valid_period input {
+    width: 5vw;
+}
+.month {
+    width: 2vw;
+}
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
